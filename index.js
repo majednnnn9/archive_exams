@@ -20,10 +20,7 @@ const upload = multer({
         fileSize: 5 * 1024 * 1024 // حد 5 ميجابايت لكل ملف
     }
 });
-app.get('/add-exam', async (req, res) => {
-    const filesSub = await pool.execute(`SELECT * FROM subjects`)
-    res.render('add_photos', { result: filesSub[0] })
-});
+
 app.get('/', async (req, res) => {
     const subjects = await pool.execute('SELECT * FROM `subjects`');
     res.render("index.ejs", { result: subjects[0] });
