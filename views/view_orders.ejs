@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عرض النتائج</title>
+    <style>
+        * {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .results-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        .result-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            background: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .result-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+        .result-info {
+            margin-top: 10px;
+        }
+        .result-status {
+            padding: 5px 10px;
+            border-radius: 4px;
+            display: inline-block;
+            margin: 5px 0;
+        }
+        .active {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .inactive {
+            background-color: #f44336;
+            color: white;
+        }
+        .buttons {
+            margin-top: 10px;
+            display: flex;
+            gap: 10px;
+        }
+        .btn {
+            padding: 8px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .btn-delete {
+            background-color: #f44336;
+            color: white;
+        }
+        .btn-accept {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .btn-reject {
+            background-color: #ff9800;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="results-container">
+        <% results.forEach(function(result) { %>
+            <div class="result-card">
+                <img src="<%= result.imageUrl %>" alt="صورة النتيجة" class="result-image">
+                <div class="result-info">
+                    <h3><%= result.subjectName %></h3>
+                    <p><%= result.departmentName %></p>
+                    <span class="result-status <%= result.active ? 'active' : 'inactive' %>">
+                        <%= result.active ? 'نشط' : 'غير نشط' %>
+                    </span>
+                    
+                    <div class="buttons">
+                        <% if(result.active) { %>
+                            <button class="btn btn-delete" onclick="deleteResult('<%= result.id %>')">حذف</button>
+                        <% } else { %>
+                            <button class="btn btn-accept" onclick="acceptResult('<%= result.id %>')">قبول</button>
+                            <button class="btn btn-reject" onclick="rejectResult('<%= result.id %>')">رفض</button>
+                        <% } %>
+                    </div>
+                </div>
+            </div>
+        <% }); %>
+    </div>
+
+    <script>
+        function deleteResult(id) {
+            if(confirm('هل أنت متأكد من حذف هذه النتيجة؟')) {
+                // قم بإرسال طلب حذف إلى الخادم
+                console.log('حذف النتيجة رقم:', id);
+            }
+        }
+
+        function acceptResult(id) {
+            if(confirm('هل تريد قبول هذه النتيجة؟')) {
+                // قم بإرسال طلب قبول إلى الخادم
+                console.log('قبول النتيجة رقم:', id);
+            }
+        }
+
+        function rejectResult(id) {
+            if(confirm('هل تريد رفض هذه النتيجة؟')) {
+                // قم بإرسال طلب رفض إلى الخادم
+                console.log('رفض النتيجة رقم:', id);
+            }
+        }
+    </script>
+</body>
+</html>
