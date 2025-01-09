@@ -25,19 +25,13 @@ app.get('/', async (req, res) => {
     const subjects = await pool.execute('SELECT * FROM `subjects`');
     res.render("index.ejs", { result: subjects[0] });
 });
-// app.get('/view-orders', async (req, res) => { 
-//     res.render('view_orders')
-// })
+
 app.get('/view-exams', async (req, res) => {
     const id = req.query.id;
     const filesSub = await pool.execute('SELECT * FROM `photos` WHERE sub_id = ? AND active = 1', [id])
     res.render("view_exams.ejs", { result: filesSub[0] });
 });
 
-app.get('/add-exam', async (req, res) => {
-    const filesSub = await pool.execute(`SELECT * FROM subjects`)
-    res.render('add_photos', { result: filesSub[0] })
-});
 
 // دالة مساعدة لرفع الصورة إلى ImgBB
 async function uploadToImgBB(imageBuffer) {
