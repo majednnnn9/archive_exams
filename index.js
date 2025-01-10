@@ -25,9 +25,7 @@ app.get('/', async (req, res) => {
     const subjects = await pool.execute('SELECT * FROM `subjects`');
     res.render("index.ejs", { result: subjects[0] });
 });
-app.use((req, res, next) => {
-    res.render("404")
-});
+
 app.get('/view-exams', async (req, res) => {
     const id = req.query.id;
     const filesSub = await pool.execute('SELECT * FROM `photos` WHERE sub_id = ? AND active = 1', [id])
