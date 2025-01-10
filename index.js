@@ -28,6 +28,7 @@ app.get('/', async (req, res) => {
 
 app.get('/view-exams', async (req, res) => {
     const id = req.query.id;
+    await pool.execute('UPDATE subjects SET `views` = `views` + 1 WHERE subjects.id = ? ; ', [id])
     const filesSub = await pool.execute('SELECT * FROM `photos` WHERE sub_id = ? AND active = 1', [id])
     res.render("view_exams.ejs", { result: filesSub[0] });
 });
