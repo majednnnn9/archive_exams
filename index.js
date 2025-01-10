@@ -26,7 +26,7 @@ const upload = multer({
 // });
 app.get('/', async (req, res) => {
     const subjects = await pool.execute('SELECT * FROM `subjects`');
-    res.render("index.ejs", { result: subjects[0], specialization: specialization[0] });
+    res.render("index.ejs", { result: subjects[0] });
 });
 
 app.get('/view-exams', async (req, res) => {
