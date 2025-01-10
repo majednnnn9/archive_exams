@@ -576,18 +576,6 @@
 
     <div class="container">
         <h1>اسئلة السنوات السابقة</h1>
-
-        <div class="form-group">
-            <select id="courseSelect" name="courseSelect" required>
-                <option value="">اختر القسم</option>
-                <%specialization.forEach(function(course) {%>
-                    <option value="<%=course.id%>">
-                        <%=course.name_ar%>
-                    </option>
-                    <%});%>
-            </select>
-        </div>
-
         <div class="template-grid">
             <% result.forEach(function(item) { %>
                 <div class="template-item" onclick="goToViewExams('<%= item.id %>')">
