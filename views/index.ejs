@@ -34,6 +34,59 @@
             margin: 0 auto;
         }
 
+        .form-group {
+            margin: 20px 0 30px 0;
+        }
+
+        select {
+            width: 100%;
+            padding: 15px 20px;
+            font-size: 16px;
+            border: 2px solid #1877f2;
+            border-radius: 10px;
+            background-color: white;
+            color: #333;
+            cursor: pointer;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background-image: linear-gradient(45deg, transparent 50%, #1877f2 50%),
+                linear-gradient(135deg, #1877f2 50%, transparent 50%);
+            background-position: calc(0% + 20px) calc(1em + 2px),
+                calc(0% + 30px) calc(1em + 2px);
+            background-size: 10px 10px;
+            background-repeat: no-repeat;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        select:focus {
+            outline: none;
+            border-color: #4a90e2;
+            box-shadow: 0 0 0 3px rgba(24, 119, 242, 0.2);
+            transform: translateY(-2px);
+        }
+
+        select option {
+            padding: 15px;
+            font-size: 16px;
+        }
+
+        select option:hover {
+            background-color: #f0f0f0;
+        }
+
+        /* تحسين مظهر الـ placeholder */
+        select option:first-child {
+            color: #666;
+            font-style: italic;
+        }
+
+        select:hover {
+            border-color: #4a90e2;
+            background-color: #f8f9fa;
+        }
+
         .logo {
             font-size: 24px;
             font-weight: bold;
@@ -62,6 +115,42 @@
             background-color: white;
             margin: 2px 0;
             transition: 0.3s;
+        }
+
+        .dropdown-container {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .custom-select {
+            width: 100%;
+            padding: 15px;
+            font-size: 16px;
+            border: 2px solid #1877f2;
+            border-radius: 8px;
+            background-color: white;
+            color: #333;
+            cursor: pointer;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background-image: linear-gradient(45deg, transparent 50%, #1877f2 50%),
+                linear-gradient(135deg, #1877f2 50%, transparent 50%);
+            background-position: calc(0% + 20px) calc(1em + 2px),
+                calc(0% + 30px) calc(1em + 2px);
+            background-size: 10px 10px;
+            background-repeat: no-repeat;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        .custom-select:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(24, 119, 242, 0.2);
+        }
+
+        .custom-select option {
+            padding: 10px;
+            font-family: 'Cairo', sans-serif;
         }
 
         .container {
@@ -160,6 +249,7 @@
             background-image: linear-gradient(45deg, rgba(46, 204, 113, 0.7), rgba(46, 204, 113, 0.7)),
                 repeating-linear-gradient(90deg, #2ecc71 0%, #2ecc71 10%, transparent 10%, transparent 20%);
         }
+
         .template-item:nth-child(7) {
             background-image: linear-gradient(45deg, rgba(74, 144, 226, 0.7), rgba(74, 144, 226, 0.7)),
                 repeating-linear-gradient(45deg, #4a90e2 0%, #4a90e2 10%, transparent 10%, transparent 20%);
@@ -189,6 +279,7 @@
             background-image: linear-gradient(45deg, rgba(46, 204, 113, 0.7), rgba(46, 204, 113, 0.7)),
                 repeating-linear-gradient(90deg, #2ecc71 0%, #2ecc71 10%, transparent 10%, transparent 20%);
         }
+
         .template-item:nth-child(13) {
             background-image: linear-gradient(45deg, rgba(74, 144, 226, 0.7), rgba(74, 144, 226, 0.7)),
                 repeating-linear-gradient(45deg, #4a90e2 0%, #4a90e2 10%, transparent 10%, transparent 20%);
@@ -218,6 +309,7 @@
             background-image: linear-gradient(45deg, rgba(46, 204, 113, 0.7), rgba(46, 204, 113, 0.7)),
                 repeating-linear-gradient(90deg, #2ecc71 0%, #2ecc71 10%, transparent 10%, transparent 20%);
         }
+
         .template-item:nth-child(19) {
             background-image: linear-gradient(45deg, rgba(74, 144, 226, 0.7), rgba(74, 144, 226, 0.7)),
                 repeating-linear-gradient(45deg, #4a90e2 0%, #4a90e2 10%, transparent 10%, transparent 20%);
@@ -247,6 +339,7 @@
             background-image: linear-gradient(45deg, rgba(46, 204, 113, 0.7), rgba(46, 204, 113, 0.7)),
                 repeating-linear-gradient(90deg, #2ecc71 0%, #2ecc71 10%, transparent 10%, transparent 20%);
         }
+
         .template-item:nth-child(25) {
             background-image: linear-gradient(45deg, rgba(26, 53, 85, 0.7), rgba(74, 144, 226, 0.7)),
                 repeating-linear-gradient(45deg, #212f3f 0%, #4a90e2 10%, transparent 10%, transparent 20%);
@@ -276,6 +369,7 @@
             background-image: linear-gradient(45deg, rgba(46, 204, 113, 0.7), rgba(46, 204, 113, 0.7)),
                 repeating-linear-gradient(90deg, #2ecc71 0%, #2ecc71 10%, transparent 10%, transparent 20%);
         }
+
         .template-item:nth-child(31) {
             background-image: linear-gradient(45deg, rgba(74, 144, 226, 0.7), rgba(74, 144, 226, 0.7)),
                 repeating-linear-gradient(45deg, #4a90e2 0%, #4a90e2 10%, transparent 10%, transparent 20%);
@@ -305,6 +399,7 @@
             background-image: linear-gradient(45deg, rgba(46, 204, 113, 0.7), rgba(46, 204, 113, 0.7)),
                 repeating-linear-gradient(90deg, #2ecc71 0%, #2ecc71 10%, transparent 10%, transparent 20%);
         }
+
         .template-item:nth-child(37) {
             background-image: linear-gradient(45deg, rgba(74, 144, 226, 0.7), rgba(74, 144, 226, 0.7)),
                 repeating-linear-gradient(45deg, #4a90e2 0%, #4a90e2 10%, transparent 10%, transparent 20%);
@@ -334,6 +429,7 @@
             background-image: linear-gradient(45deg, rgba(46, 204, 113, 0.7), rgba(46, 204, 113, 0.7)),
                 repeating-linear-gradient(90deg, #2ecc71 0%, #2ecc71 10%, transparent 10%, transparent 20%);
         }
+
         .template-item:nth-child(43) {
             background-image: linear-gradient(45deg, rgba(74, 144, 226, 0.7), rgba(74, 144, 226, 0.7)),
                 repeating-linear-gradient(45deg, #4a90e2 0%, #4a90e2 10%, transparent 10%, transparent 20%);
@@ -363,7 +459,17 @@
             background-image: linear-gradient(45deg, rgba(46, 204, 113, 0.7), rgba(46, 204, 113, 0.7)),
                 repeating-linear-gradient(90deg, #2ecc71 0%, #2ecc71 10%, transparent 10%, transparent 20%);
         }
+
         @media screen and (max-width: 768px) {
+            .form-group {
+                margin: 15px 0 20px 0;
+            }
+
+            select {
+                padding: 12px 15px;
+                font-size: 14px;
+            }
+
             .menu-toggle {
                 display: flex;
             }
@@ -470,6 +576,18 @@
 
     <div class="container">
         <h1>اسئلة السنوات السابقة</h1>
+
+        <div class="form-group">
+            <select id="courseSelect" name="courseSelect" required>
+                <option value="">اختر القسم</option>
+                <%specialization.forEach(function(course) {%>
+                    <option value="<%=course.id%>">
+                        <%=course.name_ar%>
+                    </option>
+                    <%});%>
+            </select>
+        </div>
+
         <div class="template-grid">
             <% result.forEach(function(item) { %>
                 <div class="template-item" onclick="goToViewExams('<%= item.id %>')">
@@ -477,13 +595,14 @@
                         <%= item.name_ar %>
                     </h3> <!-- افترض أن كل عنصر في result له خاصية title -->
                 </div>
+
                 <% }); %>
         </div>
     </div>
 
     <script>
 
-       
+
         function goToViewExams(itemId) {
             window.location.href = '/view-exams?id=' + itemId;
         }
