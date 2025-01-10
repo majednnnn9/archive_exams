@@ -68,9 +68,7 @@ app.post('/upload-photos', upload.array('images', 10), async (req, res) => {
         res.status(500).json({ success: false, message: 'حدث خطأ أثناء رفع الصور' });
     }
 });
-app.use((req, res, next) => {
-    res.render("404")
-});
+
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });
