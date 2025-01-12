@@ -36,30 +36,38 @@
 
         .form-group {
             margin: 20px 0 30px 0;
+            display: flex;
+            gap: 10px;
         }
 
+        #courseSelect {
+            flex: 3;
+        }
+
+        #sortSelect {
+            flex: 1;
+        }
+
+        
         select {
-            width: 100%; /* تغيير من 100% إلى auto */
-            max-height: 50px;
-            padding: 15px 15px 15px 15px;
+            width: 100%;
+            height: 55px;
+            padding: 15px;
             font-size: 16px;
-            /* border: 2px solid #1877f2; */
+            border: 2px solid #1877f2;
             border-radius: 10px;
             background-color: white;
             color: #333;
             cursor: pointer;
-            appearance: none;
             -webkit-appearance: none;
             -moz-appearance: none;
-            background-image: linear-gradient(45deg, transparent 50%, #1877f2 50%),
-                linear-gradient(135deg, #1877f2 50%, transparent 50%);
-            background-position: calc(0% + 20px) calc(1em + 2px),
-                calc(0% + 30px) calc(1em + 2px);
-            background-size: 10px 10px;
-            background-repeat: no-repeat;
+            appearance: none;
             transition: all 0.3s ease;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            text-align: center; /* إضافة هذه الخاصية */
+            text-align-last: center; /* لضمان توسيط النص في Firefox */
         }
+
 
         select:focus {
             outline: none;
@@ -69,7 +77,6 @@
         }
 
         select option {
-            /* padding: 15px; */
             font-size: 16px;
         }
 
@@ -77,7 +84,6 @@
             background-color: #f0f0f0;
         }
 
-        /* تحسين مظهر الـ placeholder */
         select option:first-child {
             color: #666;
             font-style: italic;
@@ -86,72 +92,6 @@
         select:hover {
             border-color: #4a90e2;
             background-color: #f8f9fa;
-        }
-
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-        }
-
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            margin-left: 20px;
-            transition: opacity 0.3s;
-        }
-
-        .nav-links a:hover {
-            opacity: 0.8;
-        }
-
-        .menu-toggle {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-        }
-
-        .menu-toggle span {
-            width: 25px;
-            height: 3px;
-            background-color: white;
-            margin: 2px 0;
-            transition: 0.3s;
-        }
-
-        .dropdown-container {
-            width: 100%;
-            margin-bottom: 20px;
-        }
-
-        .custom-select {
-            width: 100%;
-            padding: 15px;
-            font-size: 16px;
-            border: 2px solid #1877f2;
-            border-radius: 8px;
-            background-color: white;
-            color: #333;
-            cursor: pointer;
-            appearance: none;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            background-image: linear-gradient(45deg, transparent 50%, #1877f2 50%),
-                linear-gradient(135deg, #1877f2 50%, transparent 50%);
-            background-position: calc(0% + 20px) calc(1em + 2px),
-                calc(0% + 30px) calc(1em + 2px);
-            background-size: 10px 10px;
-            background-repeat: no-repeat;
-            font-family: 'Cairo', sans-serif;
-        }
-
-        .custom-select:focus {
-            outline: none;
-            box-shadow: 0 0 0 2px rgba(24, 119, 242, 0.2);
-        }
-
-        .custom-select option {
-            /* padding: 10px; */
-            font-family: 'Cairo', sans-serif;
         }
 
         .container {
@@ -188,7 +128,6 @@
             background-position: center;
         }
 
-
         .template-item:hover {
             transform: translateY(-10px);
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
@@ -221,6 +160,7 @@
         }
 
         /* خلفيات القوالب */
+        /* جميع أنماط الخلفيات السابقة تبقى كما هي */
         .template-item:nth-child(1) {
             background-image: linear-gradient(45deg, rgba(26, 53, 85, 0.7), rgba(74, 144, 226, 0.7)),
                 repeating-linear-gradient(45deg, #212f3f 0%, #4a90e2 10%, transparent 10%, transparent 20%);
@@ -461,120 +401,32 @@
                 repeating-linear-gradient(90deg, #2ecc71 0%, #2ecc71 10%, transparent 10%, transparent 20%);
         }
 
+        /* ... باقي خلفيات القوالب تبقى كما هي ... */
+
         @media screen and (max-width: 768px) {
             .form-group {
-                margin: 15px 0 15px 0;
-            }
-
-            select {
-                padding: 12px 15px;
-                font-size: 14px;
-            }
-
-            .menu-toggle {
                 display: flex;
-            }
-
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 60px;
-                left: 0;
-                right: 0;
-                background-color: #1877f2;
-                flex-direction: column;
-                padding: 20px;
-                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .nav-links a {
-                margin: 10px 0;
-                padding: 10px;
-                width: 100%;
-                text-align: center;
-            }
-
-            nav {
-                position: relative;
-            }
-
-            #peopleList {
-                grid-template-columns: repeat(2, 1fr);
+                flex-direction: row;
                 gap: 10px;
             }
 
-            .person-item {
-                padding: 8px;
-            }
-
-            .person-item img {
-                width: 80px;
-                height: 80px;
-            }
-
-            .person-item button {
-                width: 100%;
-                padding: 6px 8px;
-                font-size: 12px;
-                margin-top: 4px;
-                height: auto;
-                min-height: 30px;
-            }
-
-            .container {
-                padding: 10px;
-            }
-
-            #addPersonForm {
-                margin-bottom: 15px;
-            }
-
-            #personName {
+            select {
+                padding: 12px;
                 font-size: 14px;
-                padding: 8px;
             }
 
-            #button {
-                font-size: 14px;
-                padding: 8px 12px;
+            #courseSelect {
+                flex: 3;
             }
-        }
 
-        .full-width-button {
-            background-image: linear-gradient(45deg, rgba(21, 38, 58, 0.7), rgba(34, 62, 95, 0.7)),
-                repeating-linear-gradient(45deg, #4a90e2 0%, #4a90e2 10%, transparent 10%, transparent 20%);
-            color: white;
-            border: none;
-            border-radius: 5px;
-            padding: 15px;
-            /* يمكنك تعديل القيم حسب الحاجة */
-            font-size: 16px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            margin: 20px 0;
-            /* هوامش خارجية */
-            width: 100%;
-            /* عرض كامل */
-            display: block;
-            /* لجعله وسط الصفحة */
-        }
-
-        /* استعلامات الوسائط */
-        @media (max-width: 600px) {
-            .template-grid {
-                grid-template-columns: repeat(2, 1fr);
-                /* عنصرين بجانب بعضهما */
+            #sortSelect {
+                flex: 1;
             }
         }
     </style>
 </head>
 
 <body>
-
     <div class="container">
         <h1>اسئلة السنوات السابقة</h1>
 
@@ -587,6 +439,14 @@
                     </option>
                     <%});%>
             </select>
+
+            <select id="sortSelect" name="sortSelect">
+                <option value="">ترتيب</option>
+                <option value="nameAsc">أ-ي</option>
+                <option value="nameDesc">ي-أ</option>
+                <option value="dateAsc">الأقدم</option>
+                <option value="dateDesc">الأحدث</option>
+            </select>
         </div>
 
         <div class="template-grid">
@@ -594,16 +454,13 @@
                 <div class="template-item" onclick="goToViewExams('<%= item.id %>')">
                     <h3>
                         <%= item.name_ar %>
-                    </h3> <!-- افترض أن كل عنصر في result له خاصية title -->
+                    </h3>
                 </div>
-
                 <% }); %>
         </div>
     </div>
 
     <script>
-
-
         function goToViewExams(itemId) {
             window.location.href = '/view-exams?id=' + itemId;
         }
@@ -611,7 +468,3 @@
 </body>
 
 </html>
-
-
-
-
