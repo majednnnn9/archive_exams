@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html dir="rtl">
-   
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -48,7 +48,7 @@
             flex: 1;
         }
 
-        
+
         select {
             width: 100%;
             height: 55px;
@@ -63,8 +63,10 @@
             appearance: none;
             transition: all 0.3s ease;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-            text-align: center; /* إضافة هذه الخاصية */
-            text-align-last: center; /* لضمان توسيط النص في Firefox */
+            text-align: center;
+            /* إضافة هذه الخاصية */
+            text-align-last: center;
+            /* لضمان توسيط النص في Firefox */
         }
 
 
@@ -430,24 +432,25 @@
         <h1>اسئلة السنوات السابقة</h1>
 
         <div class="form-group">
-            <select id="courseSelect" name="courseSelect" required>
+            <select id="courseSelect" onchange="updateResults()" name="courseSelect" required>
                 <option value="">اختر القسم</option>
                 <%specialization.forEach(function(course) {%>
-                    <option value="<%=course.id%>">
+                    <option value="<%=course.id%>" <%=course.id==selectedSpec ? 'selected' : '' %>
+                        >
                         <%=course.name_ar%>
                     </option>
                     <%});%>
             </select>
 
-            <select id="sortSelect" name="sortSelect">
-                <option value="">ترتيب</option>
-                <option value="nameAsc">أ-ي</option>
-                <option value="nameDesc">ي-أ</option>
-                <option value="dateAsc">الأقدم</option>
-                <option value="dateDesc">الأحدث</option>
+            <select id="sortSelect" onchange="updateResults()" name="sortSelect">
+               
+                <option value="asc"  <%=sortType=='asc' ? 'selected' : '' %> >أ-ي</option>
+                <option value="desc"  <%=sortType=='desc' ? 'selected' : '' %> >ي-أ</option>
+                <!-- <option value="dateAsc">الأقدم</option>
+                <option value="dateDesc">الأحدث</option> -->
             </select>
         </div>
-    
+
         <div class="template-grid">
             <% result.forEach(function(item) { %>
                 <div class="template-item" onclick="goToViewExams('<%= item.id %>')">
@@ -460,6 +463,19 @@
     </div>
 
     <script>
+        function updateResults() {
+            const specializationSelect = document.getElementById('courseSelect');
+            const sortSelect = document.getElementById('sortSelect');
+
+            const spec_id = specializationSelect.value;
+            const sort = sortSelect.value;
+
+            const url = new URL(window.location.href);
+            url.searchParams.set('spec_id', spec_id);
+            url.searchParams.set('sort', sort);
+
+            window.location.href = url.toString();
+        }
         function goToViewExams(itemId) {
             window.location.href = '/view-exams?id=' + itemId;
         }
