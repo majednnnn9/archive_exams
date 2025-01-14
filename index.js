@@ -62,12 +62,7 @@ app.get('/', async (req, res) => {
             selectedSpec: specializationId,
             sortType: sortType
         });
-        // console.log({ 
-        //     result: subjects[0], 
-        //     specialization: specialization[0],
-        //     currentSpec: specializationId,
-        //     currentSort: sortType
-        // })
+       
     } catch (error) {
         console.error('Error:', error);
         res.status(500).send('حدث خطأ في الخادم');
@@ -81,15 +76,15 @@ app.get('/view-exams', async (req, res) => {
     res.render("view_exams.ejs", { result: filesSub[0], });
 });
 
-app.get('/add-exam', async (req, res) => {
-    const filesSub = await pool.execute(`SELECT * FROM subjects`)
-    res.render('add_photos', { result: filesSub[0] })
-});
+// app.get('/add-exam', async (req, res) => {
+//     const filesSub = await pool.execute(`SELECT * FROM subjects`)
+//     res.render('add_photos', { result: filesSub[0] })
+// });
 
-app.get('/view-subjects', async (req, res) => {
-    const filesSub = await pool.execute('SELECT  m.id,  m.name_ar,  m.views  , m.name_en, COUNT(i.id) AS image_count FROM subjects m LEFT JOIN photos i  ON m.id = i.sub_id   GROUP BY m.id, m.name_ar, m.name_en;')
-    res.render('veiw_subjects', { result: filesSub[0] })
-});
+// app.get('/view-subjects', async (req, res) => {
+//     const filesSub = await pool.execute('SELECT  m.id,  m.name_ar,  m.views  , m.name_en, COUNT(i.id) AS image_count FROM subjects m LEFT JOIN photos i  ON m.id = i.sub_id   GROUP BY m.id, m.name_ar, m.name_en;')
+//     res.render('veiw_subjects', { result: filesSub[0] })
+// });
 
 async function uploadToImgBB(imageBuffer) {
     try {
